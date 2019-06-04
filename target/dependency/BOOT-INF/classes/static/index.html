@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>IMs PP - Quem resolve?</title>
+    
+   	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Bootstrap core CSS -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"  crossorigin="anonymous"></script>
+    
+    <style>
+    /* Space out content a bit */
+		body {
+		  padding-top: 20px;
+		  padding-bottom: 20px;
+		}
+		
+		/* Everything but the jumbotron gets side spacing for mobile first views */
+		.header,
+		.marketing,
+		.footer {
+		  padding-right: 15px;
+		  padding-left: 15px;
+		}
+		
+		/* Custom page header */
+		.header {
+		  border-bottom: 1px solid #e5e5e5;
+		}
+		/* Make the masthead heading the same height as the navigation */
+		.header h3 {
+		  margin-top: 0;
+		  margin-bottom: 0;
+		  line-height: 40px;
+		}
+		
+		/* Custom page footer */
+		.footer {
+		  padding-top: 19px;
+		  color: #777;
+		  border-top: 1px solid #e5e5e5;
+		}
+		
+		/* Customize container */
+		@media (min-width: 768px) {
+		  .container {
+		    max-width: 768px;
+		  }
+		}
+		.container-narrow > hr {
+		  margin: 30px 0;
+		}
+		
+		/* Main marketing message and sign up button */
+		.jumbotron {
+		  text-align: center;
+		  border-bottom: 1px solid #e5e5e5;
+		}
+		.jumbotron .btn {
+		  padding: 14px 24px;
+		  font-size: 21px;
+		}
+		
+		/* Supporting marketing content */
+		.marketing {
+		  margin: 40px 0;
+		}
+		.marketing p + h4 {
+		  margin-top: 28px;
+		}
+		
+		/* Responsive: Portrait tablets and up */
+		@media screen and (min-width: 768px) {
+		  /* Remove the padding we set earlier */
+		  .header,
+		  .marketing,
+		  .footer {
+		    padding-right: 0;
+		    padding-left: 0;
+		  }
+		  /* Space out the masthead */
+		  .header {
+		    margin-bottom: 30px;
+		  }
+		  /* Remove the bottom border on the jumbotron for visual effect */
+		  .jumbotron {
+		    border-bottom: 0;
+		  }
+		}
+		
+		.col-md-7 {
+        width: 100%;
+     }
+    
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <div class="header clearfix">
+      	<div class="row">
+      		<div class="col-xs-6">
+      		     <h2 class="text-muted" style="margin-left: 36%;margin-top: 9%">IMs PP - Quem resolve?</h2>
+      		</div>
+      		<div class="col-xs-6">
+      			<img alt="logo" src="/img/logo.png">
+      		</div>
+      		
+      	</div>
+      </div>
+      
+      </div>
+      
+       </br>
+  		  <div class="container">
+		<div class="row col-md-7 table-responsive">
+			<table id="customerTable" class="table table-bordered table-hover">
+				<thead>
+			<tr>
+                <th>Proximos Dias</th>
+                <th>Responsável</th>   
+                
+            </tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			
+			<div id="resultMsgDiv">
+			</div>
+		</div>
+	</div>
+   
+      <footer class="footer" style="margin-left:30%">
+        <p>&copy;.</p>
+      </footer>
+
+    </div> <!-- /container -->
+      
+  </body>
+  
+   <script src="/js/jqueryAjaxGet.js"></script>
+  
+</html>

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Implementation-Title: entrevista
+Implementation-Version: 1.0
+Built-By: keven
+Implementation-Vendor-Id: br.com.uol
+Spring-Boot-Version: 2.0.4.RELEASE
+Main-Class: org.springframework.boot.loader.JarLauncher
+Start-Class: br.com.uol.ApplicationWeb
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Created-By: Apache Maven 3.5.2
+Build-Jdk: 1.8.0_212
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/entrevista
+

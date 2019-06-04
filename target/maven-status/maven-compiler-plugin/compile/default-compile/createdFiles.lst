@@ -1,0 +1,14 @@
+br/com/uol/dates/Day.class
+br/com/uol/service/ISolverService.class
+br/com/uol/ApplicationWeb.class
+br/com/uol/model/Solver.class
+br/com/uol/controller/DevsController.class
+br/com/uol/service/SolverService.class
+br/com/uol/model/Devs.class
+br/com/uol/config/SwaggerConfig.class
+br/com/uol/config/WebConfig.class
+br/com/uol/controller/SolverController.class
+br/com/uol/repository/SolverRepository.class
+br/com/uol/dates/DateTimeUtils.class
+br/com/uol/repository/DevsRepository.class
+br/com/uol/dates/BuildListDate.class
