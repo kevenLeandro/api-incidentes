@@ -18,7 +18,7 @@ import br.com.uol.repository.DevsRepository;
 import br.com.uol.repository.SolverRepository;
 
 @Service
-public class SolverService implements ISolverService{
+public class SolverService implements ISolverService  {
 
 	@Autowired
 	private SolverRepository solverRepository;
@@ -29,18 +29,17 @@ public class SolverService implements ISolverService{
 	//private Solver solver ;
 		
 	@Override
-	public List<Solver> getAllSolvers() {
+	public List<Solver> getAllSolvers( )    {
 		List<Solver> list = new ArrayList<>();
 		
-		if (solverRepository.findAll() != null)
-			solverRepository.findAll().forEach(e-> list.add(e));
-		
-		return list;
-		
+		solverRepository.deleteAll();	   
+		updateSolvers();
+		solverRepository.findAll().forEach(e-> list.add(e));
+		return list;		
 	}	       
 	
-	public List<Solver> updateSolvers() {
-		List<Solver> list = new ArrayList<>();
+	public void updateSolvers() {
+		//List<Solver> list = new ArrayList<>();
 		
 		List<Day> day;
 		List<Devs> devs = new ArrayList<>();
@@ -53,20 +52,17 @@ public class SolverService implements ISolverService{
 
             if(!(dia.getName().equals("Domingo") || dia.getName().equals("Sábado")))
             { System.out.println(dia.getName() + " "+devs.get(count).getName()  );
-                count ++;
                 solverRepository.save(new Solver(dia.toString(),devs.get(count).getName()));
+                count ++;
             }
             else{
-                System.out.println(dia.getName() +" " + devs.get(count).getPhoneNumber()) ;
+                System.out.println(dia.getName() +" ") ;
                
-                solverRepository.save(new Solver(dia.toString(),devs.get(count).getPhoneNumber()));
+                solverRepository.save(new Solver(dia.toString()," "));
             }
             
         }
-              
-		solverRepository.findAll().forEach(e-> list.add(e));
-		
-		return list;
+
 		
 	}	
  }
