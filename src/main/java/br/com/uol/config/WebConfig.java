@@ -23,6 +23,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                 .allowCredentials(true).maxAge(3600);
                
     }
+
     public void addResourceHandlers(ResourceHandlerRegistry registry) { // this does not belong here, but now it gets picked up by spring
         registry.addResourceHandler("swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");
