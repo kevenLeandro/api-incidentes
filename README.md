@@ -12,7 +12,7 @@ Endpoint's da Aplicação :
 - implementar Post para http://localhost:8080/users .
 - implentar Delete para http://localhost:8080/users .
 - implementar em <https://github.com/kevenLeandro/Painel-Incidentes-Api>  frontend para manipular users .
-- implementar tratamento (esquema de lista circular) para quando tiver numero menor de desenvolvedores do que dias.  
+- implementar tratamento (esquema de lista circular) para quando tiver numero menor de desenvolvedores do que  de dias.  
  
 ### Tecnologias 
 
@@ -22,11 +22,12 @@ Usamos as seguintes tecnologias :
 * [Spring] - 
 * [SwaggerUI] - .
 * [Docker] - .
+* [Mysql]
 
 
 ### Installation
 
-As especificações para a criação do container estão contidas Dockerfile na raiz do projeto .
+As especificações para a criação do container Java estão contidas Dockerfile na raiz do projeto .
 
  
     - FROM java:8-jdk-alpine  
@@ -39,7 +40,52 @@ As especificações para a criação do container estão contidas Dockerfile na 
 
     - ENTRYPOINT ["java","-jar","entrevista.jar"] 
 
-### Mavem
+
+As especificações para a criação do container com o banco de dados estão contidas no DockerFile na pasta /mysql
+
+ - FROM mysql  # Imagem Base para o nosso banco 
+
+ - ENV MYSQL_DATABASE entrevista # Cria a database
+
+ - COPY ./sql-scripts/ /docker-entrypoint-initdb.d/  # executa scrip de inserção de alguns dados durante a execução
+
+Para facilitar a criação e configuração containers  um arquivo compose: 
+
+```
+version: '3.1'
+services:
+  java:
+    links:
+     - "mysqldbserver" 
+    build: .
+    container_name: "web-app"
+    networks:
+      - net-backend   
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysqldbserver
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/entrevista?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=supersecret
+  mysqldbserver:
+    build: ./mysql
+    container_name: "mysql"
+    networks:
+      - net-backend 
+    ports:
+      - 3306:3306 
+    environment:
+      MYSQL_ROOT_PASSWORD: supersecret     
+
+networks:
+  net-backend:
+    driver: "bridge"
+
+```
+
+### Maven
 
 Precisamos gerar o arquivo .jar que será usado para criar a imagem docker.
 
@@ -51,8 +97,8 @@ $ mvn clean install
 Para criação e execução do container usamos respectivamente os seguintes comandos 
 
 ```sh
-$ docker build -t api-java  . 
-$ docker run -p 8090:8080-d api-java
+$ docker-compose up mysqldbserver  . 
+$ docker-compose up java
 ```
 
 ### Detalhes
